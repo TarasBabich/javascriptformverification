@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>OSS Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css"/>
+    <style>
+        label {
+            width: 100px;
+        }
+        label.error {
+            color: red;
+        }
+        input {
+            border : 1px solid #ccc;
+        }
+        input.error {
+            border-color: red;
+        }
+        .content {
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+        .verification{
+         font-size: 11px;
+           color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="content">
+                <form onsubmit="return myForm(this)" id="testForm" method="post">
+                    <div>
+                        <label for="firstName">First name</label>
+                        <input type="text" id="firstName" name="firstName"/>
+                        <div class="verification" id="1"></div>
+                    </div>
+
+                    <div>
+                        <label for="lastName">Last name</label>
+                        <input type="text" id="lastName" name="lastName"/>
+                        <div class="verification" id="2"></div>
+                    </div>
+
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="text" id="email"
+                        name="email"/>
+                        <div class="verification"  id="3"></div>
+                    </div>
+
+                    <button type="submit" id="send" name="submit" onclick="myForm"()>Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+  
+   function myForm (form) {
+     var error=false;
+     var error1=false;
+     var error2=false;
+     var error3=false;
+     var error4=false;
+       
+
+  
+  
+      var firstName = form.firstName.value;
+      var lastName = form.lastName.value;
+      var email = form.email.value;
+
+ if(firstName==" " || firstName=="" ){
+     document.getElementById('1').innerHTML="Вы не ввели свое имя";
+ return error;
+ 
+   } else if(lastName==" " || lastName==""){
+     document.getElementById('2').innerHTML="Вы не ввели свое фамилию";
+     return error;
+      } else if(email==" " || email==""){
+      document.getElementById('3').innerHTML="Вы не ввели свой емейл";
+      return error;
+     
+   } else{
+     return true;
+   }
+  if(error1){
+     alert(error1);
+    } else if(error2){
+      alert(error2);
+    }else if(error3){
+      alert(error3);
+    }else if(error4){
+     alert(error4);
+    }
+   
+    return true;
+   }
+
+  
+</script>
+<script="script.js"></script>
+</body>
+</html>
