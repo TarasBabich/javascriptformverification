@@ -25,6 +25,7 @@
         .verification{
          font-size: 11px;
            color: red;
+           
         }
     </style>
 </head>
@@ -54,7 +55,7 @@
                         <div class="verification"  id="3"></div>
                     </div>
 
-                    <button type="submit" id="send" name="submit" onclick="myForm"()>Send</button>
+                    <button type="submit" id="send" name="submit" onclick="myForm (form)">Send</button>
                 </form>
             </div>
         </div>
@@ -63,47 +64,43 @@
 
 <script>
 
-  
-   function myForm (form) {
-     var error=false;
-     var error1=false;
-     var error2=false;
-     var error3=false;
-     var error4=false;
-       
+  function myForm (form) {
+    
+    var flag = 0;
+    var firstName = form.firstName.value;
+    var lastName = form.lastName.value;
+    var email = form.email.value;
 
-  
-  
-      var firstName = form.firstName.value;
-      var lastName = form.lastName.value;
-      var email = form.email.value;
 
- if(firstName==" " || firstName=="" ){
-     document.getElementById('1').innerHTML="Вы не ввели свое имя";
- return error;
- 
-   } else if(lastName==" " || lastName==""){
-     document.getElementById('2').innerHTML="Вы не ввели свое фамилию";
-     return error;
-      } else if(email==" " || email==""){
-      document.getElementById('3').innerHTML="Вы не ввели свой емейл";
-      return error;
-     
-   } else{
-     return true;
-   }
-  if(error1){
-     alert(error1);
-    } else if(error2){
-      alert(error2);
-    }else if(error3){
-      alert(error3);
-    }else if(error4){
-     alert(error4);
-    }
+if(firstName==" " || firstName==""){
+
+    document.getElementById('1').innerHTML="Вы не ввели свое имя";
    
-    return true;
+    flag=1;
+   } 
+   if(lastName==" " || lastName==""){
+
+     document.getElementById('2').innerHTML="Вы не ввели свое фамилию";
+     //return error;
+     flag=1;
+      } 
+      if(email==" " || email==""){
+
+      document.getElementById('3').innerHTML="Вы не ввели свой емейл";
+      flag=1;
+      
+     
+      }
+      if(flag=1){
+        return false;
+      } else{
+        return true;
+      }
+      
+  
+ 
    }
+  
 
   
 </script>
