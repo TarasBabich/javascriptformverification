@@ -65,26 +65,31 @@
 <script>
 
   function myForm (form) {
-    
+    var ver=16;
     var flag = 0;
     var firstName = form.firstName.value;
     var lastName = form.lastName.value;
     var email = form.email.value;
 
+firstName=firstName.replace(/\s+/g,'');
+lastName=lastName.replace(/\s+/g,'');
+email=email.replace(/\s+/g,'');
 
-if(firstName==" " || firstName==""){
+if(firstName==""){
+
+
 
     document.getElementById('1').innerHTML="Вы не ввели свое имя";
    
     flag=1;
    } 
-   if(lastName==" " || lastName==""){
+   if(lastName==""){
 
      document.getElementById('2').innerHTML="Вы не ввели свое фамилию";
      //return error;
      flag=1;
       } 
-      if(email==" " || email==""){
+      if(email==""){
 
       document.getElementById('3').innerHTML="Вы не ввели свой емейл";
       flag=1;
